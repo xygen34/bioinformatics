@@ -1,28 +1,51 @@
 # Collin Hansen
-# Finds the number of chosen methylated nucleotide and gives you the percentage of chosen methylated nucleotide
+# States the number of methylated Adenines and Cytosine and find the percentage of each that are methylated
 # This assumes the user's input is capital letters for unmethylated and lowercase for methylated
 # Methyalted: atgcatgc
 # Unmethylated: ATGCATGC
 
 def main():
-    userLetter = input('Enter methylated nucleotide Letter: ') # lower case
-    userletter2 = input('Enter unmethylated nucleotide Letter: ') # capitalized
+    
+    methylCytosine = 'c'
+    cytosine = 'C' 
+    methylAdenine = 'a'
+    adenine = 'A'
+
+
     dna = input('Enter single strand DNA sequence: ') # only enter one strand at a time
     dna = list(dna) # converts dna variable into a list
 
-    letterCount = 0
+# Cytosines
+    methylCytosineCount = 0
     for sequence in dna:
-        letterCount += sequence.count(userLetter)
+        methylCytosineCount += sequence.count(methylCytosine)
 
-    letterCount2 = 0
+    cytosineCount = 0
     for sequence in dna:
-        letterCount2 += sequence.count(userletter2)
+        cytosineCount += sequence.count(cytosine)
 
 
-    total = letterCount2 + letterCount
+    cytosineTotal = methylCytosineCount + cytosineCount
 
-    percentage = letterCount / total
+    methylCytosinePercentage = methylCytosineCount / cytosineTotal
 
-    print(format(percentage, '0.2f'))
+    print('Number of Methylated Cytosines: ', methylCytosineCount)
+    print('Percent Cytosine Methylated: ', format(methylCytosinePercentage, '0.2f'))
+
+# Adenines
+    methylAdenineCount = 0
+    for sequence in dna:
+        methylAdenineCount += sequence.count(methylAdenine)
+
+    adenineCount = 0
+    for sequence in dna:
+        adenineCount += sequence.count(adenine)
+
+
+    adenineTotal = methylAdenineCount + adenineCount
+
+    methylAdeninePercentage = methylAdenineCount / adenineTotal
+    print('Number of Methylated Adenines: ', methylCytosineCount)
+    print('Percent Adenine Methylated: ', format(methylAdeninePercentage, '0.2f'))
 
 main()
