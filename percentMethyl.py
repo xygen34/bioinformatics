@@ -11,11 +11,11 @@ def main():
     methylAdenine = 'a'
     adenine = 'A'
 
-
+# Enter DNA Strand
     dna = input('Enter single strand DNA sequence: ') # only enter one strand at a time
     dna = list(dna) # converts dna variable into a list
 
-# Cytosines
+# Cytosine
     methylCytosineCount = 0
     for sequence in dna:
         methylCytosineCount += sequence.count(methylCytosine)
@@ -32,7 +32,7 @@ def main():
     print('Number of Methylated Cytosines: ', methylCytosineCount)
     print('Percent Cytosine Methylated: ', format(methylCytosinePercentage, '0.2f'))
 
-# Adenines
+# Adenine
     methylAdenineCount = 0
     for sequence in dna:
         methylAdenineCount += sequence.count(methylAdenine)
