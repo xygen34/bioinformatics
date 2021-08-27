@@ -5,17 +5,19 @@
 # Unmethylated: ATGCATGC
 
 def main():
-    
-    methylCytosine = 'c'
-    cytosine = 'C' 
+
     methylAdenine = 'a'
     adenine = 'A'
+    methylCytosine = 'c'
+    cytosine = 'C' 
 
-# Enter DNA Strand
+# Enter DNA strand
     dna = input('Enter single strand DNA sequence: ') # only enter one strand at a time
     dna = list(dna) # converts dna variable into a list
+    
 
 # Cytosine
+
     methylCytosineCount = 0
     for sequence in dna:
         methylCytosineCount += sequence.count(methylCytosine)
@@ -30,9 +32,10 @@ def main():
     methylCytosinePercentage = methylCytosineCount / cytosineTotal
 
     print('Number of Methylated Cytosines: ', methylCytosineCount)
-    print('Percent Cytosine Methylated: ', format(methylCytosinePercentage, '0.2f'))
-
+    print('Percent Cytosine Methylated: ', format(methylCytosinePercentage * 100, '0.0f'))
+    
 # Adenine
+
     methylAdenineCount = 0
     for sequence in dna:
         methylAdenineCount += sequence.count(methylAdenine)
@@ -43,9 +46,12 @@ def main():
 
 
     adenineTotal = methylAdenineCount + adenineCount
+    adenineTotal = int(adenineTotal)
 
     methylAdeninePercentage = methylAdenineCount / adenineTotal
-    print('Number of Methylated Adenines: ', methylCytosineCount)
-    print('Percent Adenine Methylated: ', format(methylAdeninePercentage, '0.2f'))
 
+    
+    print('Number of Methylated Adenines: ', methylAdenineCount)
+    print('Percent Adenine Methylated: ', format(methylAdeninePercentage * 100, '0.0f'))
+    
 main()
